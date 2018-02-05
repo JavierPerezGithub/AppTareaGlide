@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">AppTareaGlide</string>
+    <string name="tvNumPokemon">Introduce el número de pokemons que deseas visualizar</string>
+    <string name="etNumPokemon">Número de pokemons</string>
+    <string name="btnConsultar">Consultar</string>
+    <string name="clave_num_pokemon">NUM_POKEMON</string>
+</resources>

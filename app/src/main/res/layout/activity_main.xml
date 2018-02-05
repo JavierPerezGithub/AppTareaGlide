@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    android:padding="16dp"
+    tools:context="com.example.a21650521.apptareaglide.MainActivity">
+
+    <TextView
+        android:id="@+id/tvNumPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="61dp"
+        android:text="@string/tvNumPokemon"
+        android:textSize="24dp" />
+
+    <EditText
+        android:id="@+id/etNumPokemon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNumPokemon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp"
+        android:ems="10"
+        android:hint="@string/etNumPokemon"
+        android:inputType="number" />
+
+    <Button
+        android:id="@+id/btnConsultar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etNumPokemon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:text="@string/btnConsultar" />
+
+</RelativeLayout>
