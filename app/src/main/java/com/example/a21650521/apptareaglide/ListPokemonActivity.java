@@ -1,8 +1,10 @@
 package com.example.a21650521.apptareaglide;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -39,15 +41,12 @@ public class ListPokemonActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_pokemon);
-
-
         lista = new ArrayList<ItemPokemon>();
         numPokemon = getIntent().getStringExtra(getResources()
                 .getString(R.string.clave_num_pokemon));
         pb = findViewById(R.id.pbPokemon);
         pb.setVisibility(View.VISIBLE);
         invocarWS();
-
     }
 
     private void configurarRecyclerView() {
@@ -56,6 +55,16 @@ public class ListPokemonActivity extends AppCompatActivity {
         llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         ap = new AdaptadorPokemon(lista);
+        ap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ItemPokemon ip = lista.get(rv.getChildAdapterPosition(v));
+                AdaptadorPokemon.VHPokemon vh = (AdaptadorPokemon.VHPokemon) rv.getChildViewHolder(v);
+                Intent intent = new Intent(ListPokemonActivity.this, FotoPokemonActivity.class);
+                intent.putExtra(getResources().getString(R.string.clave_cod_pokemon), ip.getCodigo());
+                startActivity(intent);
+            }
+        });
         rv.setAdapter(ap);
     }
 
@@ -98,7 +107,6 @@ public class ListPokemonActivity extends AppCompatActivity {
         String aux ="pokemon/";
         int i = 0; // indice de pokemon\/ + el tamaño de esta cadena
         int j = 0; // último indice \/
-
         i = url.lastIndexOf(aux) + aux.length();
         j = url.lastIndexOf("/");
         codigo = url.substring(i,j);

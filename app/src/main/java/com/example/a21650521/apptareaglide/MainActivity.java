@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         etNum = findViewById(R.id.etNumPokemon);
         btnConsulta = findViewById(R.id.btnConsultar);
 
