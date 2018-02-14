@@ -59,8 +59,14 @@ public class ListPokemonActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ItemPokemon ip = lista.get(rv.getChildAdapterPosition(v));
-                AdaptadorPokemon.VHPokemon vh = (AdaptadorPokemon.VHPokemon) rv.getChildViewHolder(v);
+            //Si no tuvieramos una lista y quisieramos sacar la información directamente desde el ViewHolder le pasariamos la linea de debajo
+                //AdaptadorPokemon.VHPokemon vh = (AdaptadorPokemon.VHPokemon) rv.getChildViewHolder(v);
                 Intent intent = new Intent(ListPokemonActivity.this, FotoPokemonActivity.class);
+                /*
+                si quisiera sacarlo desde el vh tengo que poner lo siguiente:
+                intent.putExtra(getResources().getString(R.string.clave_cod_pokemon), vh.getItemId());
+                 */
+
                 intent.putExtra(getResources().getString(R.string.clave_cod_pokemon), ip.getCodigo());
                 startActivity(intent);
             }
